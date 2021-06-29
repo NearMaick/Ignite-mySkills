@@ -31,10 +31,8 @@ export function Home() {
       <Text style={[styles.title, { marginVertical: 50 }]}>My Skills</Text>
 
       {mySkills.map(skill => (
-        <TouchableOpacity style={styles.buttonSkill}>
-          <Text key={skill} style={styles.textSkill}>
-            {skill}
-          </Text>
+        <TouchableOpacity key={skill} style={styles.buttonSkill}>
+          <Text style={styles.textSkill}>{skill}</Text>
         </TouchableOpacity>
       ))}
     </SafeAreaView>
