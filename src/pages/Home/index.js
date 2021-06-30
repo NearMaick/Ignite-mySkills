@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { SafeAreaView, Text, TextInput, TouchableOpacity } from 'react-native';
+import { SafeAreaView, Text, TextInput } from 'react-native';
 import { styles } from './styles';
 
 import { Button } from '../../components/Button';
@@ -24,12 +24,12 @@ export function Home() {
         onChangeText={setNewSkill}
       />
 
-      <Button />
+      <Button onPress={handleAddNewSkill} />
 
       <Text style={[styles.title, { marginVertical: 50 }]}>My Skills</Text>
 
       {mySkills.map(skill => (
-        <SkillCard />
+        <SkillCard key={skill} skill={skill} />
       ))}
     </SafeAreaView>
   );

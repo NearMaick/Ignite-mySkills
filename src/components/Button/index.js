@@ -3,13 +3,12 @@ import { TouchableOpacity, Text } from 'react-native';
 
 import { styles } from './styles';
 
-export function Button() {
+export function Button({ onPress }) {
   return (
     <TouchableOpacity
       style={styles.button}
       activeOpacity={0.5}
-      // onPress={handleAddNewSkill}
-    >
+      onPress={onPress}>
       <Text style={styles.buttonText}>Add</Text>
     </TouchableOpacity>
   );
