@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { SafeAreaView, Text, TextInput, TouchableOpacity } from 'react-native';
 import { styles } from './styles';
 
+import { Button } from '../../components/Button';
+import { SkillCard } from '../../components/SkillCard';
+
 export function Home() {
   const [newSkill, setNewSkill] = useState('');
   const [mySkills, setMySkills] = useState([]);
@@ -21,19 +24,12 @@ export function Home() {
         onChangeText={setNewSkill}
       />
 
-      <TouchableOpacity
-        style={styles.button}
-        activeOpacity={0.5}
-        onPress={handleAddNewSkill}>
-        <Text style={styles.buttonText}>Add</Text>
-      </TouchableOpacity>
+      <Button />
 
       <Text style={[styles.title, { marginVertical: 50 }]}>My Skills</Text>
 
       {mySkills.map(skill => (
-        <TouchableOpacity key={skill} style={styles.buttonSkill}>
-          <Text style={styles.textSkill}>{skill}</Text>
-        </TouchableOpacity>
+        <SkillCard />
       ))}
     </SafeAreaView>
   );
