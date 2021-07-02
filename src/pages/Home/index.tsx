@@ -48,7 +48,7 @@ export function Home() {
         // onChangeText={text => setNewSkill(text)}
       />
 
-      <Button onPress={handleAddNewSkill} />
+      <Button title="Add" onPress={handleAddNewSkill} />
 
       <Text style={[styles.title, { marginVertical: 50 }]}>My Skills</Text>
 
