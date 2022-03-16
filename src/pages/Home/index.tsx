@@ -46,6 +46,7 @@ export function Home() {
       <Text style={styles.gretting}>{greeting}</Text>
 
       <TextInput
+        testID='input-new'
         style={styles.input}
         placeholder='New Skill'
         placeholderTextColor='#555'
@@ -53,7 +54,7 @@ export function Home() {
         // onChangeText={text => setNewSkill(text)}
       />
 
-      <Button title='Add' onPress={handleAddNewSkill} />
+      <Button testID='button-add' title='Add' onPress={handleAddNewSkill} />
 
       <Text style={[styles.title, { marginVertical: 50 }]}>My Skills</Text>
 
