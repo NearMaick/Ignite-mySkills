@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import { FlatList, SafeAreaView, Text, TextInput } from 'react-native';
-import { Button } from '../../components/Button';
-import { SkillCard } from '../../components/SkillCard';
-import { styles } from './styles';
+import React, { useEffect, useState } from "react";
+import { FlatList, SafeAreaView, Text, TextInput } from "react-native";
+import { Button } from "../../components/Button";
+import { SkillCard } from "../../components/SkillCard";
+import { styles } from "./styles";
 
 interface SkillData {
   id: string;
@@ -10,9 +10,9 @@ interface SkillData {
 }
 
 export function Home() {
-  const [newSkill, setNewSkill] = useState('');
+  const [newSkill, setNewSkill] = useState("");
   const [mySkills, setMySkills] = useState<SkillData[]>([]);
-  const [greeting, setGreeting] = useState('');
+  const [greeting, setGreeting] = useState("");
 
   function handleAddNewSkill() {
     const data = {
@@ -20,11 +20,11 @@ export function Home() {
       name: newSkill,
     };
 
-    setMySkills(oldState => [...oldState, data]);
+    setMySkills((oldState) => [...oldState, data]);
   }
 
   function handleRemoveSkill(id: string) {
-    setMySkills(oldState => oldState.filter(skill => skill.id !== id));
+    setMySkills((oldState) => oldState.filter((skill) => skill.id !== id));
   }
 
   useEffect(() => {
@@ -32,34 +32,34 @@ export function Home() {
     // const currentHour = 19;
 
     currentHour < 12
-      ? setGreeting('Good morning')
+      ? setGreeting("Good morning")
       : currentHour >= 12 && currentHour < 19
-      ? setGreeting('Good afternoon')
-      : setGreeting('Good night');
+      ? setGreeting("Good afternoon")
+      : setGreeting("Good night");
   }, []);
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.title} testID="welcome">
+      <Text style={styles.title} testID='welcome'>
         Welcome, Maick
       </Text>
       <Text style={styles.gretting}>{greeting}</Text>
 
       <TextInput
         style={styles.input}
-        placeholder="New Skill"
-        placeholderTextColor="#555"
+        placeholder='New Skill'
+        placeholderTextColor='#555'
         onChangeText={setNewSkill}
         // onChangeText={text => setNewSkill(text)}
       />
 
-      <Button title="Add" onPress={handleAddNewSkill} />
+      <Button title='Add' onPress={handleAddNewSkill} />
 
       <Text style={[styles.title, { marginVertical: 50 }]}>My Skills</Text>
 
       <FlatList
         data={mySkills}
-        keyExtractor={item => item.id}
+        keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
           <SkillCard
             skill={item.name}
