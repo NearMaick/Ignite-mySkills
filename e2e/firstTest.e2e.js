@@ -1,4 +1,4 @@
-describe("Example", () => {
+describe("Example tests", () => {
   beforeAll(async () => {
     await device.launchApp();
   });
@@ -17,9 +17,8 @@ describe("Example", () => {
 
     await inputNewSkill.tap();
     await inputNewSkill.typeText("React Native");
-
     await buttonAdd.tap();
 
-    // await expect()
+    expect(element(by.id("flat-list-skills"))).toBeVisible();
   });
 });
