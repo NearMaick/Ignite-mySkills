@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { SafeAreaView, Text, TextInput, FlatList } from 'react-native';
-import { styles } from './styles';
-
+import { FlatList, SafeAreaView, Text, TextInput } from 'react-native';
 import { Button } from '../../components/Button';
 import { SkillCard } from '../../components/SkillCard';
+import { styles } from './styles';
 
 interface SkillData {
   id: string;
@@ -13,7 +12,7 @@ interface SkillData {
 export function Home() {
   const [newSkill, setNewSkill] = useState('');
   const [mySkills, setMySkills] = useState<SkillData[]>([]);
-  const [gretting, setGretting] = useState('');
+  const [greeting, setGreeting] = useState('');
 
   function handleAddNewSkill() {
     const data = {
@@ -33,16 +32,18 @@ export function Home() {
     // const currentHour = 19;
 
     currentHour < 12
-      ? setGretting('Good morning')
+      ? setGreeting('Good morning')
       : currentHour >= 12 && currentHour < 19
-      ? setGretting('Good afternoon')
-      : setGretting('Good night');
+      ? setGreeting('Good afternoon')
+      : setGreeting('Good night');
   }, []);
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.title}>Welcome, Maick</Text>
-      <Text style={styles.gretting}>{gretting}</Text>
+      <Text style={styles.title} testID="welcome">
+        Welcome, Maick
+      </Text>
+      <Text style={styles.gretting}>{greeting}</Text>
 
       <TextInput
         style={styles.input}
